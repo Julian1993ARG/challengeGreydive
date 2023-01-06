@@ -1,6 +1,7 @@
 import { Home, Results } from './pages'
 import './app.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import '@/config/firebaseConfig'
 
 export function App () {
   return (
