@@ -21,4 +21,5 @@ Por último, traé las respuestas de la base de datos ya mencionada y mostralas 
 - Para el maquetado de formulario utilice el que me da ReactBootstrap, es responsivo, además  está validado, todos los campos son requeridos, la edad debe ser mayor a 18 años, no se puede dar submit hasta que la validaciónes sean pasadas, se valida y muestran los errores luego de mínimamente presionar el campo.  
 - Si no llegas a completar el formulario los datos se guardan en localStorage para que cuando vuelvas se inicia desde donde lo dejaste.  
 - Al hacer submit luego de pasar las validaciones, se guarda en Firebase en al coleccion "users".  
--
+- Las respuestas de la encuesta se muestran en la ruta "/answers", no esta validada la ruta, se puede acceder desde cualquier lado.
+- La app solo tiene dos pages, la del formulario y la de las respuestas, ambas rutas tienen lazy loading.

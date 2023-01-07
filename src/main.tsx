@@ -12,7 +12,6 @@ if (!rootElement) {
 const root = createRoot(rootElement)
 root.render(
   <StrictMode>
-
     <Suspense fallback={<div>Loading...</div>}>
       <App />
     </Suspense>

@@ -1,9 +1,10 @@
 import { Form, Row, Col, Card, FloatingLabel, Button, Container } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import { formTypes } from '@/models'
-import { arrayCountries, validateSchemaForm } from '@/utils'
+import { arrayCountries, validateSchemaForm, removeLocalStorage, setLocalStorage } from '@/utils'
 import { db } from '@/config/firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore'
+import { useEffect } from 'react'
 
 export default function FormCreate () {
   const { values, handleChange, handleBlur, errors, isSubmitting, handleSubmit, touched } = useFormik({
@@ -13,12 +14,14 @@ export default function FormCreate () {
       try {
         const docRef = await addDoc(collection(db, 'users'), values)
         console.log('Document written with ID: ', docRef.id)
+        removeLocalStorage('formValues')
       } catch (error) {
         console.log(error)
       }
     },
   })
-
+  console.log(values)
+  useEffect(() => { if (values)setLocalStorage('formValues', values) }, [values])
   return (
     <Container>
       <Card className='mx-2 my-2'>
