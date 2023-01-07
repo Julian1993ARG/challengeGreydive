@@ -57,6 +57,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@types/react-router-dom": "^5.3.3"
   }
 }

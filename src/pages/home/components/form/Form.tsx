@@ -145,6 +145,7 @@ export default function FormCreate () {
                   onBlur={handleBlur}
                   isInvalid={touched.terms_and_conditions && !!errors.terms_and_conditions}
                   className='d-flex justify-content-center gap-2'
+                  checked={!!values.terms_and_conditions}
                 />
                 <Form.Control.Feedback type='invalid'>
                   {errors.terms_and_conditions}

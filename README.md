@@ -23,3 +23,4 @@ Por último, traé las respuestas de la base de datos ya mencionada y mostralas 
 - Al hacer submit luego de pasar las validaciones, se guarda en Firebase en al coleccion "users".  
 - Las respuestas de la encuesta se muestran en la ruta "/answers", no esta validada la ruta, se puede acceder desde cualquier lado.
 - La app solo tiene dos pages, la del formulario y la de las respuestas, ambas rutas tienen lazy loading.
+- Script para crear usuarios randon utilizando la libreria Faker, sino existen usuarios se crean 5 por defecto.
