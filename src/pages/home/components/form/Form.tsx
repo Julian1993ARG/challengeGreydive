@@ -1,13 +1,14 @@
 import { Form, Row, Col, Card, FloatingLabel, Button, Container } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import { formTypes } from '@/models'
-import { arrayCountries } from '@/utils'
+import { arrayCountries, validateSchemaForm } from '@/utils'
 import { db } from '@/config/firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore'
 
 export default function FormCreate () {
-  const { values, handleChange, handleBlur, errors, isSubmitting, handleSubmit } = useFormik({
+  const { values, handleChange, handleBlur, errors, isSubmitting, handleSubmit, touched } = useFormik({
     initialValues: formTypes,
+    validationSchema: validateSchemaForm,
     onSubmit: async (values, { resetForm }) => {
       try {
         const docRef = await addDoc(collection(db, 'users'), values)
@@ -17,6 +18,7 @@ export default function FormCreate () {
       }
     },
   })
+
   return (
     <Container>
       <Card className='mx-2 my-2'>
@@ -52,8 +54,11 @@ export default function FormCreate () {
                     value={values.full_name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isInvalid={!!errors.full_name}
+                    isInvalid={touched.full_name && !!errors.full_name}
                   />
+                  <Form.Control.Feedback type='invalid'>
+                    {errors.full_name}
+                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Form.Group>
 
@@ -70,8 +75,11 @@ export default function FormCreate () {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isInvalid={!!errors.email}
+                    isInvalid={touched.email && !!errors.email}
                   />
+                  <Form.Control.Feedback type='invalid'>
+                    {errors.email}
+                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Form.Group>
 
@@ -88,8 +96,12 @@ export default function FormCreate () {
                     value={values.birth_date}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isInvalid={!!errors.birth_date}
+                    isInvalid={touched.birth_date && !!errors.birth_date}
                   />
+                  <Form.Control.Feedback type='invalid'>
+                    {errors.birth_date}
+                  </Form.Control.Feedback>
+
                 </FloatingLabel>
               </Form.Group>
 
@@ -105,13 +117,16 @@ export default function FormCreate () {
                     value={values.country_of_origin}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    isInvalid={!!errors.country_of_origin}
+                    isInvalid={touched.country_of_origin && !!errors.country_of_origin}
                   >
                     <option value=''>Selecciona un país</option>
                     {arrayCountries.map((country, index) => (
                       <option key={index} value={country.value}>{country.label}</option>
                     ))}
                   </Form.Select>
+                  <Form.Control.Feedback type='invalid'>
+                    {errors.country_of_origin}
+                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Form.Group>
 
@@ -125,10 +140,12 @@ export default function FormCreate () {
                   value={values.terms_and_conditions}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  isInvalid={!!errors.terms_and_conditions}
+                  isInvalid={touched.terms_and_conditions && !!errors.terms_and_conditions}
                   className='d-flex justify-content-center gap-2'
                 />
-
+                <Form.Control.Feedback type='invalid'>
+                  {errors.terms_and_conditions}
+                </Form.Control.Feedback>
               </Form.Group>
               <Col
                 sm={12}
