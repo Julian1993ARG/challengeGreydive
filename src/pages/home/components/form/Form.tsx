@@ -5,6 +5,7 @@ import { arrayCountries, validateSchemaForm, removeLocalStorage, setLocalStorage
 import { db } from '@/config/firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function FormCreate () {
   const { values, handleChange, handleBlur, errors, isSubmitting, handleSubmit, touched } = useFormik({
@@ -20,7 +21,6 @@ export default function FormCreate () {
       }
     },
   })
-  console.log(values)
   useEffect(() => { if (values)setLocalStorage('formValues', values) }, [values])
   return (
     <Container>
@@ -169,6 +169,7 @@ export default function FormCreate () {
           </Form>
         </Card.Footer>
       </Card>
+      <Link to='/results'> Resultados</Link>
     </Container>
   )
 }
