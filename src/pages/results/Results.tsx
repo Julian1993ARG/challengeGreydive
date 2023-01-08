@@ -4,6 +4,7 @@ import { db } from '@/config/firebaseConfig'
 import { AsDataExel, Card, ByCountriesData } from './components'
 import { useEffect, useState } from 'react'
 import { formInitialValues } from '@/models/formTypes'
+import { Link } from 'react-router-dom'
 
 export default function Results () {
   const [data, setData] = useState<formInitialValues[]>([])
@@ -46,6 +47,7 @@ export default function Results () {
 
         <CardBootstrap.Footer>
           <AsDataExel data={data} />
+          <Link className='ms-5' to='/'>Volver al inicio</Link>
         </CardBootstrap.Footer>
 
       </CardBootstrap>

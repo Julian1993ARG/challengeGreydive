@@ -5,9 +5,11 @@ import { arrayCountries, validateSchemaForm, removeLocalStorage, setLocalStorage
 import { db } from '@/config/firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export default function FormCreate () {
+  const navigate = useNavigate()
   const { values, handleChange, handleBlur, errors, isSubmitting, handleSubmit, touched } = useFormik({
     initialValues: formTypes,
     validationSchema: validateSchemaForm,
@@ -15,9 +17,25 @@ export default function FormCreate () {
       try {
         const docRef = await addDoc(collection(db, 'users'), values)
         console.log('Document written with ID: ', docRef.id)
+        resetForm()
         removeLocalStorage('formValues')
+        Swal.fire({
+          icon: 'success',
+          title: '¡Bien hecho!',
+          text: 'Tu formulario se ha enviado correctamente',
+          timer: 3000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+          didClose: () => {
+            navigate('/results')
+          },
+        })
       } catch (error) {
-        console.log(error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo salió mal, intenta de nuevo',
+        })
       }
     },
   })
