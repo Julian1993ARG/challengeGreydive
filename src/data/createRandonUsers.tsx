@@ -11,7 +11,7 @@ const createRandomUsers = (count: number): formInitialValues[] => {
     users.push({
       full_name: faker.name.fullName(),
       email: faker.internet.email(),
-      birth_date: faker.date.past(18).toISOString().split('T')[0],
+      birth_date: faker.date.birthdate({ max: 99, min: 18, mode: 'age' }).toISOString().split('T')[0],
       country_of_origin: faker.helpers.arrayElement(countryesArray),
       terms_and_conditions: 'true',
     })

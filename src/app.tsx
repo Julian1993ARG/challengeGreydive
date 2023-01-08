@@ -8,7 +8,7 @@ const HomeLazy = lazy(() => import('./pages/home/Home'))
 const ResultsLazy = lazy(() => import('./pages/results/Results'))
 
 export function App () {
-  useEffect(() => { createRandonUsers(5) }, [])
+  useEffect(() => { createRandonUsers(15) }, [])
   return (
     <div className='App'>
       <BrowserRouter>

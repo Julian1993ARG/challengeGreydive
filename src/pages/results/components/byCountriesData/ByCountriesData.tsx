@@ -48,7 +48,7 @@ export default function ByCountriesData ({ data }:Props) {
             </div>
             <ProgressBar
               now={countryData.countryPercentage}
-              label={`${countryData.countryPercentage}%`}
+              label={`${countryData.countryPercentage.toFixed(1)}%`}
             />
           </div>
         ))}
