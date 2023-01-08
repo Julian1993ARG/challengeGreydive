@@ -8,7 +8,6 @@ interface Props {
 }
 
 export default function AsDataExel ({ data }: Props) {
-  console.log(data)
   const handleClick = () => {
     if (!data) return Swal.fire('Error', 'No hay datos para exportar', 'error')
     const ws = utils.json_to_sheet(data)

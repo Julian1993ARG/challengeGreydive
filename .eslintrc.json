@@ -10,6 +10,7 @@
     "jsx-a11y"
   ],
   "rules": {
+    "camelcase": "off",
     "comma-dangle": [
       "error",
       {
