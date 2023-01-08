@@ -21,7 +21,7 @@ export default function AsDataExel ({ data }: Props) {
 
   return (
     <>
-      <Button type='button' variant='info' onClick={handleClick}>Descarga Exel</Button>
+      <Button type='button' variant='info' onClick={handleClick}>Descarga la data en formato Exel</Button>
     </>
   )
 }

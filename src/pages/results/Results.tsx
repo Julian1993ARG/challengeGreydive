@@ -1,12 +1,14 @@
-import { doc, getDocs, collection } from 'firebase/firestore'
+import { Container, Card as CardBootstrap, Row } from 'react-bootstrap'
+import { getDocs, collection } from 'firebase/firestore'
 import { db } from '@/config/firebaseConfig'
-import { AsDataExel, Card } from './components'
+import { AsDataExel, Card, ByCountriesData } from './components'
 import { useEffect, useState } from 'react'
 import { formInitialValues } from '@/models/formTypes'
 
 export default function Results () {
   const [data, setData] = useState<formInitialValues[]>([])
   const [arrayCountries, setArrayCountries] = useState<string[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
   useEffect(() => {
     const getData = async () => {
       const querySnapshot = await getDocs(collection(db, 'users'))
@@ -17,12 +19,36 @@ export default function Results () {
       const countries = orderData.map((item: formInitialValues) => item.country_of_origin)
       setArrayCountries(countries)
       setData(orderData)
+      setLoading(false)
     }
     getData()
   }, [])
+  if (loading) return (<h1>Loading...</h1>)
   return (
-    <>
-      <AsDataExel data={data} />
-    </>
+    <Container>
+      <CardBootstrap className='mb-3'>
+
+        <CardBootstrap.Header>
+          <CardBootstrap.Title>Resultados</CardBootstrap.Title>
+        </CardBootstrap.Header>
+
+        <CardBootstrap.Body>
+          <Row className='mx-0 px-0 justify-content-center'>
+
+            {
+            data.map((item: formInitialValues, index: number) => {
+              return <Card key={index} data={item} />
+            })
+          }
+            <ByCountriesData data={arrayCountries} />
+          </Row>
+        </CardBootstrap.Body>
+
+        <CardBootstrap.Footer>
+          <AsDataExel data={data} />
+        </CardBootstrap.Footer>
+
+      </CardBootstrap>
+    </Container>
   )
 }
