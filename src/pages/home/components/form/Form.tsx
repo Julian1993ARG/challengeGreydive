@@ -64,7 +64,6 @@ export default function FormCreate () {
             <Row>
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  controlId='floatingInput'
                   label='Nombre completo'
                   className='mb-3'
                 >
@@ -87,7 +86,6 @@ export default function FormCreate () {
 
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  controlId='floatingInput'
                   label='Correo electrónico'
                   className='mb-3'
                 >
@@ -110,7 +108,6 @@ export default function FormCreate () {
 
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  controlId='floatingInput'
                   label='Fecha de nacimiento'
                   className='mb-3'
                 >
@@ -134,7 +131,6 @@ export default function FormCreate () {
 
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  controlId='floatingInput'
                   label='¿Cuál es tu país de origen?'
                   className='mb-3'
                 >
