@@ -70,6 +70,7 @@ export default function FormCreate () {
                 >
                   <Form.Control
                     required
+                    id='name'
                     type='text'
                     name='full_name'
                     value={values.full_name}
@@ -91,6 +92,7 @@ export default function FormCreate () {
                 >
                   <Form.Control
                     required
+                    id='email'
                     type='email'
                     name='email'
                     value={values.email}
@@ -113,6 +115,7 @@ export default function FormCreate () {
                   <Form.Control
                     required
                     type='date'
+                    id='birthDate'
                     name='birth_date'
                     value={values.birth_date}
                     onChange={handleChange}
@@ -134,6 +137,7 @@ export default function FormCreate () {
                 >
                   <Form.Select
                     required
+                    id='country'
                     name='country_of_origin'
                     value={values.country_of_origin}
                     onChange={handleChange}
