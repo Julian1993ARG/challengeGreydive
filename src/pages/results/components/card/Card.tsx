@@ -2,7 +2,6 @@
 import { Card as CardBootstrap, Col } from 'react-bootstrap'
 import { formInitialValues } from '@/models/formTypes'
 import { firstLetterUppercase } from '@/utils'
-import { faker } from '@faker-js/faker'
 
 interface CardProps {
   data: formInitialValues
@@ -10,7 +9,7 @@ interface CardProps {
 export default function Card ({ data }: CardProps) {
   const { birth_date, country_of_origin, email, full_name } = data
   const date = new Date(birth_date)
-  const age = new Date().getFullYear() - date.getFullYear()
+  const age = new Date().getFullYear() - date.getFullYear() - 1
   return (
     <CardBootstrap
       as={Col} sm={12} md={5} lg={4}

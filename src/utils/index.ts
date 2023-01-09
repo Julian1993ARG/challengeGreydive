@@ -1,4 +1,5 @@
 export * from './arraysData'
 export { default as firstLetterUppercase } from './firstLetterUppercase'
 export * from './localStoregeFunctions'
+export { default as randomName } from './randomName'
 export * from './validateSchemaForm'

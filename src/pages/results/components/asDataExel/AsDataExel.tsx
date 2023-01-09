@@ -1,7 +1,8 @@
-import { utils, writeFile } from 'xlsx'
+import { utils, writeFile, write } from 'xlsx'
 import fileSaver from 'file-saver'
 import { Button } from 'react-bootstrap'
 import Swal from 'sweetalert2'
+import { randomName } from '@/utils'
 
 interface Props {
   data: any
@@ -10,17 +11,20 @@ interface Props {
 export default function AsDataExel ({ data }: Props) {
   const handleClick = () => {
     if (!data) return Swal.fire('Error', 'No hay datos para exportar', 'error')
-    const ws = utils.json_to_sheet(data)
-    const wb = utils.book_new()
-    utils.book_append_sheet(wb, ws, 'Sheet1')
-    const file = writeFile(wb, 'test.xlsx')
-    const blob = new Blob([file], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
-    fileSaver.saveAs(blob, 'test.xlsx')
+    const sheet = utils.json_to_sheet(data)
+    const workbook = {
+      Sheets: {
+        data: sheet,
+      },
+      SheetNames: ['data'],
+    }
+    writeFile(workbook, `${randomName()}.xlsx`)
+    write(workbook, { type: 'base64' })
   }
 
   return (
     <>
-      <Button type='button' variant='info' onClick={handleClick}>Descarga en formato Exel</Button>
+      <Button type='button' variant='info' onClick={handleClick}>Descarga Exel</Button>
     </>
   )
 }
