@@ -1,5 +1,4 @@
 import { utils, writeFile, write } from 'xlsx'
-import fileSaver from 'file-saver'
 import { Button } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import { randomName } from '@/utils'
@@ -24,7 +23,7 @@ export default function AsDataExel ({ data }: Props) {
 
   return (
     <>
-      <Button type='button' variant='info' onClick={handleClick}>Descarga Exel</Button>
+      <Button type='button' variant='success' onClick={handleClick}>Descarga Exel</Button>
     </>
   )
 }

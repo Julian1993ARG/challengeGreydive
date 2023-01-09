@@ -43,15 +43,18 @@ export default function ByCountriesData ({ data }:Props) {
         {countriesData.map((countryData) => (
           <div key={countryData.countryName}>
             <div className='d-flex justify-content-between user-select-none'>
-              <span className='text-uppercase fw-bold'>{countryData.countryName}</span>
-              <span className='fw-bold'>{countryData.countryCount}</span>
+              <span className='text-uppercase fw-bold'>{`${countryData.countryName} / ${countryData.countryCount}`}</span>
+              <span className='fw-bold'>{`${countryData.countryPercentage.toFixed(1)}%`}</span>
             </div>
             <ProgressBar
               now={countryData.countryPercentage}
-              label={`${countryData.countryPercentage.toFixed(1)}%`}
+              animated
             />
           </div>
         ))}
+        <Card.Text className='user-select-none mt-2'>
+          <span className='fw-bold '>Total de datos:</span> {totalCountries}
+        </Card.Text>
       </Card.Body>
     </Card>
 
