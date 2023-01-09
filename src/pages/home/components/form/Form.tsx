@@ -70,6 +70,7 @@ export default function FormCreate () {
                 >
                   <Form.Control
                     required
+                    placeholder='Nombre completo'
                     id='name'
                     type='text'
                     name='full_name'
@@ -92,6 +93,7 @@ export default function FormCreate () {
                 >
                   <Form.Control
                     required
+                    placeholder='Correo electrónico'
                     id='email'
                     type='email'
                     name='email'
@@ -114,6 +116,7 @@ export default function FormCreate () {
                 >
                   <Form.Control
                     required
+                    placeholder='Fecha de nacimiento'
                     type='date'
                     id='birthDate'
                     name='birth_date'
@@ -137,6 +140,7 @@ export default function FormCreate () {
                 >
                   <Form.Select
                     required
+                    placeholder='¿Cuál es tu país de origen?'
                     id='country'
                     name='country_of_origin'
                     value={values.country_of_origin}
