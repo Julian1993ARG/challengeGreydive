@@ -1,7 +1,11 @@
 /**
- * Solo strings, pueden ser varios strings ej. julián martinez, todos se retornarán con su primera letra en uppercase.
+ * @param {string} string
+ * @returns {string}
+ * @description First letter uppercase
+ * @example
+ * firstLetterUppercase('hello world') // Hello World
  */
-const firstLetterUppercase = (string:string) => {
+const firstLetterUppercase = (string:string): string => {
   if (!string) return string
   if (typeof string !== 'string') return string
   const array = string.split(' ')

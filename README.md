@@ -1,28 +1,69 @@
 # Challenge **greydive**
 
+  
+
 Realizar una app en React.js que lea el siguiente [archivo JSON](https://drive.google.com/file/d/1hsOMsEHx5mjFSt0nIPovciai8DdLq0Nu/view?usp=sharing) y genere con cada ítem una interfaz de app de encuesta (como Google Forms).
+
+  
 
 En cuanto a diseño y estética tiene que diferir de Google Forms. Puedes utilizar cualquier librería que creas necesaria.
 
   
 
+  
+
 Las respuestas de la encuesta deben ser enviadas a una base de datos de Firebase.
+
+  
 
 Dicha base de datos tiene que ser de su propiedad. No nos compartas acceso a la base de datos.
 
   
 
+  
+
 Por último, traé las respuestas de la base de datos ya mencionada y mostralas en la misma app pero en otra ruta. Al presionar “enviar” en el formulario tiene que aparecer un mensaje y el acceso a esa ruta en donde estarán las respuestas. El diseño y estética queda a libre elección.
+
+  
 
 # Detalles.
 
-- Utilice  Typescript.  
-- Para el formulario usé  Formik, para las validaciones Yup, para las alertas Sweetalert2, para las rutas react-router-dom, utilice este boilerplate [Link](https://github.com/Julian1993ARG/boilerplate-vite-react-typescript).  
-- Para el maquetado de formulario utilice el que me da ReactBootstrap, es responsivo, además  está validado, todos los campos son requeridos, la edad debe ser mayor a 18 años, no se puede dar submit hasta que la validaciónes sean pasadas, se valida y muestran los errores luego de mínimamente presionar el campo.  
-- Si no llegas a completar el formulario los datos se guardan en localStorage para que cuando vuelvas se inicia desde donde lo dejaste.  
-- Al hacer submit luego de pasar las validaciones, se guarda en Firebase en al coleccion "users".  
-- Las respuestas de la encuesta se muestran en la ruta "/answers", no esta validada la ruta, se puede acceder desde cualquier lado.
-- La app solo tiene dos pages, la del formulario y la de las respuestas, ambas rutas tienen lazy loading.
-- Script para crear usuarios random, utilizando la libreria Faker, sino existen usuarios se crean la cantidad definida.
-- Utilizando barras de carga se muestra el pocentage de cada pais.
-- Se puede descargar la informacion de firebase en formato Excel.
+- Tegnologias:
+	- 
+	- Typescript, Formik, Yup, bootstrap, React-bootstrap, Sweelert2, vite, xlsx, firebase, Standar, googleAnalyt, react-router-dom, [boilerplate](https://github.com/Julian1993ARG/boilerplate-vite-react-typescript).
+
+- Maquetado:
+	- 
+	- Para el maquetado se utilizó el sistema de grillas y componentes de bootstrap y React-bootstrap, además el proyecto es responsivo.
+- Validaciones:
+	- 
+	- Full_name: 
+		- Requerido.
+		- Mínimo 10 caracteres.
+		- Máximo 50 caracteres.
+		- Sin caracteres especiales.
+	- Email:
+		- Requerio.
+		- Tipo correo electrónico.
+	- Birth_date:
+		- Requerido.
+		- El usuario debe ser mayor de 18 años.
+	- Country_of_origin:
+		- Requerido.
+		- Debe ser uno de los países  válidos.
+	- Terms_and_conditions:
+		- Requerido.
+
+- Firebase:
+	- 
+	- Se guardan los datos en una colección llamada "users".
+
+- Extras:
+	- 
+	- Los valores ingresados en el formulario se guardan en el LocalStorage, en caso de quedar incompleto se podrá continuar desde donde se dejó.  
+	- Las respuestas se renderizan en una grilla de cards con los datos del usuario.  
+	- Se calculó la edad del usuario restando la fecha actual menos la ingresada.  
+	- Se renderiza un gráfico con los datos de los países  más  elegidos.  
+	- Se permite descargar la información en formato .xlsx, donde las propiedades serán columnas y los valores serán filas.  
+	- La aplicación dispone de dos rutas( /, /results ).  
+	- Se utilizó  Lazy  Loading en los dos componentes principales, lo que evita carga innecesaria de información.
