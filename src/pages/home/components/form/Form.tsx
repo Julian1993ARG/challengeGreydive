@@ -66,7 +66,7 @@ export default function FormCreate () {
             <Row>
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  label='Nombre completo'
+                  label='Nombre completo*'
                   className='mb-3'
                 >
                   <Form.Control
@@ -88,7 +88,7 @@ export default function FormCreate () {
 
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  label='Correo electrónico'
+                  label='Correo electrónico*'
                   className='mb-3'
                 >
                   <Form.Control
@@ -110,7 +110,7 @@ export default function FormCreate () {
 
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  label='Fecha de nacimiento'
+                  label='Fecha de nacimiento*'
                   className='mb-3'
                 >
                   <Form.Control
@@ -133,7 +133,7 @@ export default function FormCreate () {
 
               <Form.Group as={Col} sm={12} md={6}>
                 <FloatingLabel
-                  label='¿Cuál es tu país de origen?'
+                  label='¿Cuál es tu país de origen?*'
                   className='mb-3'
                 >
                   <Form.Select
@@ -161,7 +161,7 @@ export default function FormCreate () {
 
                 <Form.Check
                   type='checkbox'
-                  label='¿Acepta los términos y condiciones?'
+                  label='¿Acepta los términos y condiciones?*'
                   required
                   name='terms_and_conditions'
                   value={values.terms_and_conditions}

@@ -39,11 +39,11 @@ Por último, traé las respuestas de la base de datos ya mencionada y mostralas 
 	- 
 	- Full_name: 
 		- Requerido.
-		- Mínimo 10 caracteres.
-		- Máximo 50 caracteres.
+		- Mínimo 10 carácteres.
+		- Máximo 50 carácteres.
 		- Sin caracteres especiales.
 	- Email:
-		- Requerio.
+		- Requerido.
 		- Tipo correo electrónico.
 	- Birth_date:
 		- Requerido.
@@ -56,11 +56,11 @@ Por último, traé las respuestas de la base de datos ya mencionada y mostralas 
 
 - Firebase:
 	- 
-	- Se guardan los datos en una colección llamada "users".
+	- Se guardaran los datos en una colección llamada "users".
 
 - Extras:
 	- 
-	- Los valores ingresados en el formulario se guardan en el LocalStorage, en caso de quedar incompleto se podrá continuar desde donde se dejó.  
+	- Los valores ingresados en el formulario se guardan en el LocalStorage. En caso de quedar incompleto, se podrá continuar desde donde se dejó.  
 	- Las respuestas se renderizan en una grilla de cards con los datos del usuario.  
 	- Se calculó la edad del usuario restando la fecha actual menos la ingresada.  
 	- Se renderiza un gráfico con los datos de los países  más  elegidos.  
